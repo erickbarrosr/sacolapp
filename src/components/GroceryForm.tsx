@@ -12,8 +12,8 @@ interface GroceryFormProps {
 
 const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState<number>(1);
-  const [price, setPrice] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number | string>(1);
+  const [price, setPrice] = useState<number | string>(0);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -79,7 +79,19 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
             type="number"
             min="1"
             value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+            onChange={(e) => {
+              const value = e.target.value;
+              setQuantity(value === "" ? "" : parseInt(value));
+            }}
+            onBlur={() => {
+              if (
+                quantity === "" ||
+                isNaN(Number(quantity)) ||
+                Number(quantity) < 1
+              ) {
+                setQuantity(1);
+              }
+            }}
             className="w-full"
           />
         </div>
@@ -92,7 +104,15 @@ const GroceryForm: React.FC<GroceryFormProps> = ({ onAddItem }) => {
             min="0"
             step="0.01"
             value={price}
-            onChange={(e) => setPrice(parseFloat(e.target.value) || 0)}
+            onChange={(e) => {
+              const value = e.target.value;
+              setPrice(value === "" ? "" : parseFloat(value));
+            }}
+            onBlur={() => {
+              if (price === "" || isNaN(Number(price)) || Number(price) < 0) {
+                setPrice(0);
+              }
+            }}
             className="w-full"
             placeholder="0,00"
           />

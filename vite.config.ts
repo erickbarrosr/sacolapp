@@ -21,8 +21,8 @@ export default defineConfig(({ mode }) => ({
         "favicon.svg",
       ],
       manifest: {
-        name: "SacolApp",
-        short_name: "SacolApp",
+        name: "VaiDá?",
+        short_name: "VaiDá?",
         description: "O app mais top para organizar suas compras na sacola!",
         theme_color: "#4CAF50",
         background_color: "#ffffff",

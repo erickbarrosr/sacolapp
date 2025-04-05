@@ -53,7 +53,7 @@ const Index: React.FC = () => {
         <div className="container mx-auto py-6 px-4">
           <div className="flex items-center gap-3 justify-center">
             <ShoppingCart size={28} />
-            <h1 className="text-2xl font-bold text-center">SacolApp</h1>
+            <h1 className="text-2xl font-bold text-center">VaiDá?</h1>
           </div>
         </div>
       </header>
@@ -91,7 +91,7 @@ const Index: React.FC = () => {
       </main>
 
       <footer className="mt-10 py-4 text-center text-sm text-gray-500">
-        <p>&copy; 2025 SacolApp</p>
+        <p>&copy; 2025 VaiDá?</p>
       </footer>
     </div>
   );
